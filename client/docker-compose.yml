@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  vite-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"  # Map port 80 of the container to port 80 of the host
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      NODE_ENV: development
+    command: npm run dev
+    network_mode: bridge  
